@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-
 export const PostCreate = (props) => {
 
     const [title, setTitle] = useState('');

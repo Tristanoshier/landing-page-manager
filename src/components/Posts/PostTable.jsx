@@ -1,7 +1,6 @@
 import {Table, Button} from 'reactstrap';
 
-
-export const AdminTable = (props) => {
+export const PostTable = (props) => {
 
     const deletePost = (post) => {
         fetch(`http://localhost:3001/post/delete/${post.id}`, {

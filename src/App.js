@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AdminIndex } from './components/Auth/AdminIndex';
 import { Login } from './components/Auth/Login';
+import { Home } from './components/Auth/Home';
 function App(){
     const [sessionToken, setSessionToken] = useState('');
 
@@ -21,7 +21,7 @@ function App(){
     }
 
     const protectedViews = () => {
-      return (sessionToken === localStorage.getItem('token') ? <AdminIndex logout={clearToken} token={sessionToken} />
+      return (sessionToken === localStorage.getItem('token') ? <Home logout={clearToken} token={sessionToken} />
       : <Login updateToken={updateToken} />)
     }
     return (
