@@ -18,8 +18,9 @@ export const ProjectTable = (props) => {
                 <tr key={index}>
                     <th scope="row">{project.id}</th>
                     <td>{project.title}</td>
-                    <td>{project.body}</td>
-                    <td>{project.topic}</td>
+                    <td>{project.languages}</td>
+                    <td>{project.description}</td>
+                    <td>{project.link}</td>
                     <td>
                         <Button color="warning" onClick={() => { props.editProject(project); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => { deleteProject(project) }}>Delete</Button>

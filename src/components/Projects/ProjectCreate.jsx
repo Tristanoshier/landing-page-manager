@@ -10,7 +10,7 @@ export const ProjectCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (title && body && topic) {
+        if (title && languages && description && link) {
             fetch("http://localhost:3001/project/create", {
                 method: 'POST',
                 body: JSON.stringify({ title: title, languages: languages, description: description, link: link }),
@@ -34,25 +34,25 @@ export const ProjectCreate = (props) => {
 
     return (
         <div>
-            <h3>log a project</h3>
+            <h3>Add Project</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="title" />
+                    <Label htmlFor="title">Title: </Label>
                     <Input name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="languages" />
+                    <Label htmlFor="languages">Languages: </Label>
                     <Input name="languages" value={languages} onChange={(e) => setLanguages(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="description" />
+                    <Label htmlFor="description">Description: </Label>
                     <Input name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="link" />
+                    <Label htmlFor="link">Link: </Label>
                     <Input name="link" value={link} onChange={(e) => setLink(e.target.value)} />
                 </FormGroup>
-                <Button type="submit">Click to Post</Button>
+                <Button type="submit">Click to Add</Button>
             </Form>
         </div>
     )

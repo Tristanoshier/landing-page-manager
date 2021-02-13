@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export const SiteNav = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -13,11 +14,11 @@ export const SiteNav = (props) => {
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
-            <NavItem>
-              <NavLink to="/">Posts</NavLink>
+            <NavItem onClick={() => toggleNavbar()}>
+              <Link to="/">Posts</Link>
             </NavItem>
-            <NavItem>
-              <NavLink to="/projects">Projects</NavLink>
+            <NavItem onClick={() => toggleNavbar()}>
+              <Link to="/projects">Projects</Link>
             </NavItem>
             <Button onClick={() => props.logout()}>Logout</Button>
           </Nav>
