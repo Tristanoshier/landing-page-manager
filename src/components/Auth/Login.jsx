@@ -5,10 +5,11 @@ import {Form, FormGroup, Label, Input, Button, Container} from 'reactstrap';
 export const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3001/admin/login", {
+        fetch(`${APIURL}/admin/login`, {
             method: 'POST',
             body: JSON.stringify({username: username, password: password}),
             headers: new Headers({

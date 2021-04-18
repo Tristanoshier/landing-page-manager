@@ -1,9 +1,10 @@
 import {Table, Button} from 'reactstrap';
 
 export const PostTable = (props) => {
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     const deletePost = (post) => {
-        fetch(`http://localhost:3001/post/delete/${post.id}`, {
+        fetch(`${APIURL}/post/delete/${post.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type' : 'application/json',

@@ -7,11 +7,13 @@ export const ProjectCreate = (props) => {
     const [languages, setLanguages] = useState('');
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (title && languages && description && link) {
-            fetch("http://localhost:3001/project/create", {
+            fetch(`${APIURL}/project/create`, {
                 method: 'POST',
                 body: JSON.stringify({ title: title, languages: languages, description: description, link: link }),
                 headers: new Headers({

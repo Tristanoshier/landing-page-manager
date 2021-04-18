@@ -6,9 +6,10 @@ export const ProjectEdit = (props) => {
     const [editLanguages, setEditLanguages] = useState(props.updatedProject.languages);
     const [editDescription, setEditDescription] = useState(props.updatedProject.description);
     const [editLink, setEditLink] = useState(props.updatedProject.link);
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     const projectUpdate = () => {
-        fetch(`http://localhost:3001/project/update/${props.updatedProject.id}`, {
+        fetch(`${APIURL}/project/update/${props.updatedProject.id}`, {
             method: 'PUT',
             body: JSON.stringify({ title: editTitle, languages: editLanguages, description: editDescription, link: editLink }),
             headers: new Headers({

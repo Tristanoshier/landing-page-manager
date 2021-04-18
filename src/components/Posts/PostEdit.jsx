@@ -8,9 +8,10 @@ export const PostEdit = (props) => {
     const [editTitle, setEditTitle] = useState(props.updatedPost.title);
     const [editBody, setEditBody] = useState(props.updatedPost.body);
     const [editTopic, setEditTopic] = useState(props.updatedPost.topic);
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     const postUpdate = () => {
-        fetch(`http://localhost:3001/post/update/${props.updatedPost.id}`, {
+        fetch(`${APIURL}/post/update/${props.updatedPost.id}`, {
             method: 'PUT',
             body: JSON.stringify({ title: editTitle, body: editBody, topic: editTopic }),
             headers: new Headers({

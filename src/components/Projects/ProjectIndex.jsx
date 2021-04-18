@@ -8,6 +8,7 @@ export const ProjectIndex = (props) => {
     const [projects, setProjects] = useState([]);
     const [updateActive, setUpdateActive] = useState(false);
     const [updatedProject, setUpdatedProject] = useState({});
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
 
     useEffect(() => {
@@ -15,7 +16,7 @@ export const ProjectIndex = (props) => {
     }, [])
 
     const getProjects = () => {
-        fetch("http://localhost:3001/site/projects", {
+        fetch(`${APIURL}/site/projects`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

@@ -9,14 +9,14 @@ export const PostIndex = (props) => {
     const [posts, setPosts] = useState([]);
     const [updateActive, setUpdateActive] = useState(false);
     const [updatedPost, setUpdatedPost] = useState({});
-
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     useEffect(() => {
         getPosts();
     }, [])
 
     const getPosts = () => {
-        fetch("http://localhost:3001/site/", {
+        fetch(`${APIURL}/site/`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

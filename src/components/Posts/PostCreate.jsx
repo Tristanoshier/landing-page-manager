@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export const PostCreate = (props) => {
-
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [topic, setTopic] = useState('');
+    const APIURL = 'https://tristanoshier-server.herokuapp.com';
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(title && body && topic) {
-            fetch("http://localhost:3001/post/create/", {
+            fetch(`${APIURL}/post/create/`, {
             method: 'POST',
             body: JSON.stringify({title: title, body: body, topic: topic}),
             headers: new Headers({
@@ -35,12 +35,12 @@ export const PostCreate = (props) => {
             <h3>create a post</h3>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="title" />
+                    <Label htmlFor="title">Title:</Label>
                     <Input name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="body"/>
-                    <Input name="body" value={body} onChange={(e) => setBody(e.target.value)}/>
+                    <Input type="text" autoComplete="off" name="body" value={body} onChange={(e) => setBody(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="topic" />
