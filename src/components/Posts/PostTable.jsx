@@ -19,7 +19,7 @@ export const PostTable = (props) => {
                 <tr key={index}>
                     <th scope="row">{post.id}</th>
                     <td>{post.title}</td>
-                    <td>{post.body}</td>
+                    <td><div dangerouslySetInnerHTML={{__html: post.body}} /></td>
                     <td>{post.topic}</td>
                     <td>
                         <Button color="warning" onClick={()=> {props.editPost(post); props.updateOn()}}>Update</Button>
